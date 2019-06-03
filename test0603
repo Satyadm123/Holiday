@@ -1,0 +1,61 @@
+sum (case when fin.gl_code ='10001' then fin.gl_transaction_amount else 0  end ) aggregate_value_of_nrp_child_maintenance_liability_charged ,
+
+sum (case when fin.gl_code in ('90002','90022','90032')  then fin.gl_transaction_amount else 0  end ) aggregate_value_of_nrp_residual_arrears_transitioned ,
+
+sum(case when fin.gl_code = '10002' then fin.gl_transaction_amount else 0  end ) aggregate_value_of_non_child_maintenance_charged ,
+
+sum(case when fin.gl_code = '10003' then fin.gl_transaction_amount else 0  end ) aggregate_value_of_nrp_direct_pay_maintenance_charged ,
+
+sum(case when fin.gl_code in ('10210','10211','10212','10213')  then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_enforcement_charges ,
+
+sum(case when fin.gl_code = '10200' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_collection_charges ,
+
+sum(case when fin.gl_code = '11002' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_pwc_direct_pay_maintenance_charged ,
+
+sum(case when fin.gl_code = '11001' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_pwc_child_maintenance_liability_charged,
+
+sum(case when fin.gl_code in('90005','90025','90035') then fin.gl_transaction_amount else 0 end ) aggregate_value_of_pwc_residual_arrears_transitioned,
+
+sum(case when fin.gl_code = '10004' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_ongoing_child_maintenance_cash_received,
+
+sum(case when fin.gl_code = '10020' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_residual_arrears_cash_received,
+
+sum(case when fin.gl_code in('10310','10311','10312','10313') then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_enforcement_charge_cash_received,
+
+sum(case when fin.gl_code ='10300' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_collection_cash_received,
+
+sum(case when fin.gl_code ='11020' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_residual_arrears_cash_paid,
+
+sum(case when fin.gl_code ='11003' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_child_maintenance_cash_paid,
+
+sum(case when fin.gl_code ='10009' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_cash_refunds_paid_to_nrp,
+
+sum(case when fin.gl_code ='11200' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_pwc_payment_charges_paid,
+
+sum(case when fin.gl_code ='10008' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_non_cash_receipt,
+
+sum(case when fin.gl_code ='10018' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_residual_arrears_non_cash_receipt,
+
+sum(case when fin.gl_code ='11008' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_non_cash_payment,
+
+sum(case when fin.gl_code ='11018' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_residual_arrears_non_cash_payment,
+
+sum(case when fin.gl_code ='10006' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_direct_pay_receipt,
+
+sum(case when fin.gl_code ='11004' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_pwc_direct_pay_payment,
+
+sum(case when fin.gl_code ='10007' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_write_offs_nrp,
+
+sum(case when fin.gl_code ='10201' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_coll_charges_written_off,
+
+sum(case when fin.gl_code in ('10214','10215','10216','10217') then fin.gl_transaction_amount else 0 end ) aggregate_value_of_nrp_enforcement_write_off,
+
+sum(case when fin.gl_code ='15013' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_cmg_cost_written_off,
+
+sum(case when fin.gl_code ='11211' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_sos_liabilities_written_off,
+
+sum(case when fin.gl_code ='10011' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_residual_arrears_written_off_nrp,
+
+sum(case when fin.gl_code ='11005' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_write_off_pwc,
+
+sum(case when fin.gl_code ='11006' then fin.gl_transaction_amount else 0 end ) aggregate_value_of_legacy_write_off_pwc ,
