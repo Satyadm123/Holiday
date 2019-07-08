@@ -1,0 +1,115 @@
+ACCOUNT_CODE,ACCOUNT_NAME,ACCOUNT_TYPE,LEVEL_1_LIAB_TYPE,LEVEL_2_LIAB_TYPE
+10001,NRP Maintenance raised,PROFIT AND LOSS ACCOUNTS,Liability,NRP Child Maintenance Liability Charged
+10002,NRP non maintenance raised,PROFIT AND LOSS ACCOUNTS,Liability,Non Child Maintenance Liability Charged
+10003,NRP private pay maint raised,PROFIT AND LOSS ACCOUNTS,Liability,NRP Private pay maintenance charged
+10004,NRP maintenance cash recd,PROFIT AND LOSS ACCOUNTS,Cash received,Ongoing Child Maintenance cash received
+10005,NRP non maintenance cash recd,PROFIT AND LOSS ACCOUNTS,Cash received,Non Child Maintenance cash received
+10006,NRP private pay liab discharge,PROFIT AND LOSS ACCOUNTS,Private pay,NRP Private pay maintenance discharged
+10007,NRP maintenance written off,PROFIT AND LOSS ACCOUNTS,Non cash movements,Write-offs - NRP
+10008,NRP non cash receipt,PROFIT AND LOSS ACCOUNTS,Non cash movements,Non cash receipt
+10020,NRP legacy cash recd,PROFIT AND LOSS ACCOUNTS,Cash received,Legacy Child Maintenance cash received
+11001,PWC liability raised,PROFIT AND LOSS ACCOUNTS,Liability,PWC Child Maintenance Liability Charged
+11002,PWC private pay liab raised,PROFIT AND LOSS ACCOUNTS,Liability,PWC Private pay maintenance charged
+11003,PWC cash paid,PROFIT AND LOSS ACCOUNTS,Cash paid,Maintenance cash paid
+11004,PWC private pay liab discharged,PROFIT AND LOSS ACCOUNTS,Private pay,PWC Private pay maintenance discharged
+11008,PWC non cash payment,PROFIT AND LOSS ACCOUNTS,Non cash movements,Non cash payment
+11020,PWC legacy cash paid,PROFIT AND LOSS ACCOUNTS,Cash paid,Legacy cash paid
+11210,SoS Arrears - Cash Paid Account,PROFIT AND LOSS ACCOUNTS,Cash paid,Maintenance cash paid
+13000,Interest received,PROFIT AND LOSS ACCOUNTS,,
+15009,NRP increase/ decrease in provision,PROFIT AND LOSS ACCOUNTS,,
+15010,NRP debt written off,PROFIT AND LOSS ACCOUNTS,,
+15011,PWC increase/ decrease in provision,PROFIT AND LOSS ACCOUNTS,,
+15012,PWC debt written off,PROFIT AND LOSS ACCOUNTS,,
+50001,NRP liability control ,NRP accounts,,
+50003,NRP payment control ,NRP accounts,,
+50005,NRP provision,NRP accounts,,
+50006,NRP private pay liab control,NRP accounts,,
+51002,Bailiff  cash received,Other sources of cash,Cash received,3rd party cash received
+51003,Bailiff cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+51005,Employer overdraft,Other sources of cash,Non cash movements,Suspense
+51006,Employer cash received,Other sources of cash,Cash received,3rd party cash received
+51007,Employer cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+51008,EJO cash received,Other sources of cash,Cash received,3rd party cash received
+51009,EJO cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+51010,Sheriff officer cash received,Other sources of cash,Cash received,3rd party cash received
+51011,Sheriff Officer cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+51012,Veteran agency cash received,Other sources of cash,Cash received,3rd party cash received
+51013,Veteran agency cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+51014,DCA(Debt collection agency) cash received,Other sources of cash,Cash received,3rd party cash received
+51015,DCA(Debt collection agency) cash allocated,Other sources of cash,Non cash movements,Money Allocated to an Account
+55001,GB future scheme bank account,Bank control accounts,,
+55002,GB residuary body bank account,Bank control accounts,,
+55003,NI future scheme bank account,Bank control accounts,,
+55004,NI residuary body bank account,Bank control accounts,,
+55005,Employer bank account,Bank control accounts,,
+56001,PWC liability control,Payee accounts,,
+56002,PWC payment control,Payee accounts,,
+56003,SOS arrears control non cash,Payee accounts,,
+56004,PWC Priv Pay Liab Control,Payee accounts,,
+56005,PWC overdraft control,Payee accounts,Non cash movements,Suspense
+56006,SOS suspense control,Payee accounts,Non cash movements,Suspense
+56023,SofS Liability Control ,Payee accounts,,
+56024,SOS payment control,Payee accounts,,
+57001,Suspense ,Suspense account,,
+57002,Interbranch suspense ,Suspense account,Non cash movements,Suspense
+57010,Receipt suspense ,Suspense account,Non cash movements,Suspense
+57021,Payment suspense ,Suspense account,Non cash movements,Suspense
+57022,Outward Clearing ,Suspense account,Non cash movements,Suspense
+57023,Method of payment summary ,Suspense account,Non cash movements,Suspense
+57024,Trickle Feed Suspense ,Suspense account,Non cash movements,Suspense
+57025,Voluntary Payments,Suspense account,Non cash movements,Suspense
+57026,Third party offset,Suspense account,Non cash movements,Suspense
+57027,Split care Roleswap,Suspense account,Non cash movements,Suspense
+57028,Reassignment Suspense,Suspense account,Non cash movements,Suspense
+57031,Credit Online Suspense,Suspense account,Non cash movements,Suspense
+57100,System suspense,Suspense account,Non cash movements,Suspense
+58002,Admin Current account,Current Accounts,Non cash movements,Suspense
+58007,CSA Current,Current Accounts,Non cash movements,Suspense
+58008,Subject access requests,Current Accounts,Non cash movements,Suspense
+58010,Interbranch accounts,Current Accounts,,
+60000,Inter site contra,Current Accounts,,
+90000,Reserves brought forward,Reserves,,
+90001,Liabilities less payments,Reserves,,
+90002,NRP transfers in from legacy,Reserves,Liability,Child Maintenance Liability Transitioned
+90005,PWC transfers in from legacy,Reserves,Liability,Child Maintenance Liability Transitioned
+90006,SofS Arrears Liability Raised ,,,
+10210,NRP Enforcement Charge Raised DEO/DER,,Liability,NRP Enforcement Charge
+10211,NRP Enforcement Charge Raised RDO,,Liability,NRP Enforcement Charge
+10212,NRP Enforcement Charge Raised LSDO,,Liability,NRP Enforcement Charge
+10213,NRP Enforcement Charge Raised LO,,Liability,NRP Enforcement Charge
+10200,NRP Collection Charges Raised,,Liability,NRP Collection Charges Raised
+10009,Cash refunds paid to NRP ,,Cash Paid ,Cash refunds paid to NRP 
+11110,PWC payment Charges Raised,,,
+11200,PWC Payment charges paid,,Cash Paid ,PWC Payment charges paid
+10310,NRP enforcement charge cash received DEO DER,,Cash Received ,NRP enforcement charge cash received
+10311,NRP enforcement charge cash received RDO,,Cash Received ,NRP enforcement charge cash received
+10312,NRP enforcement charge cash received LSDO,,Cash Received ,NRP enforcement charge cash received
+10313,NRP enforcement charge cash received LO,,Cash Received ,NRP enforcement charge cash received
+10300,NRP Collection cash received,,Cash Received ,NRP Collection cash received
+10201,NRP Coll Charges Written Off,,Write Offs ,NRP Coll Charges Written off
+10214,NRP Enforcement Charge W/Off DEO DER,,Write Offs ,NRP enforcement Write off
+10215,NRP Enforcement Charge W/Off RDO,,Write Offs ,NRP enforcement Write off
+10216,NRP Enforcement Charge W/Off LSDO,,Write Offs ,NRP enforcement Write off
+10217,NRP Enforcement charge W/Off LO,,Write Offs ,NRP enforcement Write off
+15013,CMG Cost Written Off,,Write Offs ,CMG Cost Written Off
+11211,SoS Liabilities written Off ,,Write Offs ,SoS Liabilities Written Off 
+11005,PWC Written Off ,,Write Offs ,Write off - PWC
+56100,Charge Payment Control Payee Accounts,,,
+15020,Interbranch Liability Suspense Account,,,
+11111,Application Charge Raised,,,
+11112,Application Charge Received,,,
+10301,MD Direct Non Scheme,,,
+90022,NRP adjusted Legacy Arrears LO,Reserves,Liability,Child Maintenance Liability Transitioned
+90025,PWC adjusted Legacy Arrears LO,Reserves,Liability,Child Maintenance Liability Transitioned
+90032,NRP adjusted Legacy Arrears ,Reserves,Liability,Child Maintenance Liability Transitioned
+90035,PWC adjusted Legacy Arrears ,Reserves,Liability,Child Maintenance Liability Transitioned
+90036,SoS adjusted Legacy Arrears,Reserves,Liability,Child Maintenance Liability Transitioned
+90026,SoS adjusted Legacy Arrears LO,Reserves,Liability,Child Maintenance Liability Transitioned
+10018,NRP Legacy non cash receipt,Legacy Advance Payments,Legacy Liability,Legacy Write off
+11018,PWC Legacy non-cash payment,Legacy Advance Payments,Legacy Liability,Legacy Write off
+10011,NRP Residual Arrears Write off,Legacy Advance Payments,Legacy Liability,Legacy Write off
+11006,PWC Legacy written-off,Legacy Advance Payments,Legacy Liability,Legacy Write off
+11211,SoS Legacy written-off,Legacy Advance Payments,Legacy Liability,Legacy Write off
+55011,GB Future Scheme Bank Account,Bank control accounts,,
+55013,NI Future Scheme Bank Account,Bank control accounts,,
+55015,Employer Future Scheme Bank Account,Bank control accounts,,
