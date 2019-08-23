@@ -1,0 +1,373 @@
+CLASSPATH 
+
+
+sqoop list-databases -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR
+
+sqoop eval -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR -query 'select* from employees'
+
+
+sqoop eval -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR -query 'desc HR.employees'
+
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhedge1.sdp.local:/var/lib/sqoop
+
+/var/lib/sqoop
+/var/lib/sqoop2
+/usr/lib/sqoop/lib
+
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhworker3.sdp.local:/var/lib/sqoop
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhworker4.sdp.local:/var/lib/sqoop
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhworker5.sdp.local:/var/lib/sqoop
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhmaster1.sdp.local:/var/lib/sqoop
+scp /var/lib/sqoop/ojdbc6.jar satyas.dasmohp@sdp.local@cdhworker6.sdp.local:/var/lib/sqoop
+
+sqoop eval -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR -query 'select * from all_tab_columns where owner = "HR"  '
+
+
+find / -name sqlplus -print
+
+ORACLE_HOME=/u01/ora01/app/oracle/product/11.2.0/db_1/
+[root@orahost db_1]# export ORACLE_HOME
+[root@orahost db_1]#  PATH=$PATH:$ORACLE_HOME/bin
+[root@orahost db_1]# export PATH
+[root@orahost db_1]# sqlplus
+export ORACLE_SID=ORA11G
+sqlplus
+
+
+sqoop-import -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR --table REGIONS   --as-parquetfile --target-dir /user/hive/warehouse/siebel/s_test_region1  --split-by region_id
+
+Vgpeqpid1.123
+
+
+while read a b c d e f 
+do
+    /home/satyas.dasmohp@SDP.LOCAL/scripts/sqoop3.sh $a $b $c $d $e $f 
+done < /home/satyas.dasmohp@SDP.LOCAL/scripts/param_file.txt
+
+
+
+
+
+sqoop-import -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username HR --password HR --table REGIONS   --as-parquetfile --target-dir /user/hive/warehouse/siebel/${1}  --split-by region_id
+
+CREATE EXTERNAL TABLE `2`(
+  `region_id` string,
+  `region_name` string
+  )
+PARTITIONED BY (load_dt string)
+LOCATION
+  'hdfs://cdhmaster1.sdp.local:8020/user/hive/warehouse/siebel/raw.db/s_test_region2'
+
+
+sqoop-import -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username ${1} --password ${2} --table ${3} --hive-import --hive-table ${4} --hive-overwrite --hive-partition-key ${5}  --hive-partition-value ${6} --split-by region_id
+
+ksh sqoop3.sh HR HR REGIONS default.s_test_region2 load_dt `date +%d-%m-%Y`
+
+
+echo "$(cat paramfile.txt)"
+username=$(echo $1)
+fname=$(echo $2)
+mname=$3
+group=$4
+echo "$lname$fname$mname$group"
+
+
+
+
+while read a b c d e
+do
+    /home/satyas.dasmohp@SDP.LOCAL/scripts/sqoop3.sh $a $b $c $d $e `date +%Y-%m-%d`
+done < /home/satyas.dasmohp@SDP.LOCAL/scripts/param_file.txt
+
+
+
+
+
+while read a b c d e
+do
+   echo /home/satyas.dasmohp@SDP.LOCAL/scripts/sqoop3.sh $a $b $c $d $e `date +%Y-%m-%d` > /home/satyas.dasmohp@SDP.LOCAL/scripts/tmp_run/sqoop_run_$c.sh
+done < /home/satyas.dasmohp@SDP.LOCAL/scripts/param_file.txt
+
+cd /home/satyas.dasmohp@SDP.LOCAL/scripts/tmp_run
+chmod 777 *.sh
+for script in /home/satyas.dasmohp@SDP.LOCAL/scripts/tmp_run/*.sh; do "$script" & done
+wait
+
+
+
+
+
+
+
+sqoop-import -connect jdbc:oracle:thin:@10.201.13.202:1521:ORA11G -username ${1} --password ${2} --table ${3} --hive-import --hive-table ${4} --hive-overwrite --hive-partition-key ${5} -split-by ${6} --hive-partition-value ${7} --compression-codec snappy   --null-string '\\N' --null-non-string '\\N' --fields-terminated-by '\001' --hive-delims-replacement '\0D'
+
+
+
+
+SET hive.exec.dynamic.partition = true;  SET hive.exec.dynamic.partition.mode = nonstrict; set hive.exec.max.dynamic.partitions = 1200; set hive.exec.max.dynamic.partitions.pernode = 1000;
+spark.sql.avro.compression.codec = snappy
+yarn.scheduler.maximum-allocation-mb 25500
+spark.executor.memory 10G
+spark.driver.memory 10G
+
+scala> val df1= spark.sql(""" select * from base_cms2012_bancs.glif where to_date(trans_date)= '2017-01-02' """);
+df1: org.apache.spark.sql.DataFrame = [row_wid: bigint, key_1: string ... 33 more fields]
+
+scala> spark.conf.set("spark.sql.avro.compression.codec","snappy");
+
+
+
+S_USER.LAST_UPD > to_date('01-01-2019 01:01:01','MM-DD-YYYY HH:MI:SS') --working
+
+scala> val df1= spark.sql(""" select * from base_cms2012_bancs.glif where to_date(trans_date)= '2017-01-02' """);
+df1: org.apache.spark.sql.DataFrame = [row_wid: bigint, key_1: string ... 33 more fields]
+
+
+sqlplus -s odsmiread/ODSMIREAD @s_contact.sql > test.txt
+
+impala-shell -i cdhworker1.sdp.local -d default
+
+impala-shell -i cdhworker1.sdp.local -d a.hql
+
+hdfs dfs -du -h /tmp/hive/
+
+hadoop fs -find /user/hive/warehouse/siebel/raw.db | wc -l
+
+hive --hivevar dbName=migration_test_siebel_raw --hivevar hdfsDIR=/user/hive/warehouse/siebel/migration_test_siebel_raw.db/ -f siebel_raw.sql
+hive --hivevar dbName=migration_test_siebel_base --hivevar hdfsDIR=/user/hive/warehouse/siebel/migration_test_siebel_base.db/ -f siebel_base.sql
+hive --hivevar dbName=migration_test_bancs_raw --hivevar hdfsDIR=/user/hive/warehouse/siebel/migration_test_bancs_raw.db/ -f bancs_raw.sql
+hive --hivevar dbName=migration_test_bancs_base --hivevar hdfsDIR=/user/hive/warehouse/siebel/migration_test_bancs_raw.db/ -f bancs_base.sql
+
+
+
+http://cdhedge1.sdp.local:8888/hue/editor/?type=impala
+
+http://10.201.12.9:6008/administrator/
+
+http://10.201.13.10:7180/cmf/login cloudera
+
+https://10.0.4.4:8443/administrator/#admin_domainOverview/ new informatica
+
+
+
+/user/infa_chads_hive/infastage
+
+Vgpeqpid1.123
+infahivestg
+
+/opt/informatica/10.2.2/isp/bin
+
+
+Interim:
+
+infachads
+Inf1chads??
+
+
+
+
+
+
+./infacmd.sh wfs ListWorkflowParams -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a Application_source_to_raw_s_user -wf wf_source_to_raw_s_user -o /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_s_user.xml
+
+
+./infacmd.sh wfs ListWorkflowParams -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a Application_source_to_raw_glif -wf wf_source_to_raw_glif -o /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_glif.xml
+
+'01-01-2010 01:00:00'
+
+infabdm1.sdp.local
+
+/opt/informatica/10.2.2/isp/bin/infacmd.sh wfs StartWorkflow -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a Application_source_to_raw_s_user -wf wf_source_to_raw_s_user -pf /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_s_user.xml
+
+
+
+
+/opt/informatica/10.2.2/isp/bin/infacmd.sh wfs StartWorkflow -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a App_test -wf wf_source_to_raw_s_user -pf /home/infachads/scripts/test2.xml
+
+
+
+
+[ICMD_10004] Invalid command option: [usd]
+Usage:
+        <-DomainName|-dn> domain_name
+        <-ServiceName|-sn> service_name
+        <-UserName|-un> user_name
+        <-Password|-pd> password
+        [<-SecurityDomain|-sdn> security_domain]
+        [<-ResilienceTimeout|-re> timeout_period_in_seconds]
+        <-Application|-a> application_name
+        <-Workflow|-wf> workflow_name
+        [<-Wait|-w> true|false]
+        [<-ParameterFile|-pf> parameter_file_path]
+        [<-ParameterSet|-ps> parameter_set_name]
+        [<-OperatingSystemProfile|-osp> operating_system_profile_name]
+
+Starts an instance of a workflow. You can start a workflow with a parameter set or a parameter file.
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?><root xmlns="http://www.informatica.com/Parameterization/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema" version="2.0">
+    <!--Specify deployed application specific parameters here.-->
+    <!--
+    <application name="App_test">
+    <workflow name="wf_source_to_raw_s_user"/>
+</application>
+-->
+    <project name="Cap_Alpha">
+        <folder name="ELT_Workflows">
+            <workflow name="wf_source_to_raw_s_user">
+                <parameter name="load_date">2019-07-12</parameter>
+                <parameter name="last_upd">'01-01-2012 01:00:00'</parameter>
+            </workflow>
+        </folder>
+    </project>
+</root>
+
+
+<version>1.7.21</version>
+
+<version>3.2</version>
+
+ver=3.2;
+sed -i "s/\(<version>\)[^<]*\(<\/version>\)/\1$ver\2/" /opt/informatica/10.2.2/isp/bin/test_sat.xml
+
+
+<version>3.2</version_name>
+
+ver=1.2;
+sed -i "s/\(<version>\)[^<]*\(<\/version_name>\)/\1$ver\2/" /opt/informatica/10.2.2/isp/bin/test_sat.xml
+
+<?xml version="1.0" encoding="UTF-8"?><root xmlns="http://www.informatica.com/Parameterization/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema" version="2.0">
+    <!--Specify deployed application specific parameters here.-->
+    <!--
+    <application name="App_test">
+    <workflow name="wf_source_to_raw_s_user"/>
+</application>
+-->
+    <project name="Cap_Alpha">
+        <folder name="ELT_Workflows">
+            <workflow name="wf_source_to_raw_s_user">
+                <parameter name=load_date>2019-07-12</parameter>
+                <parameter name="last_upd">'01-01-2012 01:00:00'</parameter>
+            </workflow>
+        </folder>
+    </project>
+</root>
+
+ver=2019-07-16;
+sed -i "s/\(<parameter name="load_date">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /opt/informatica/10.2.2/isp/bin/test_sat.xml
+
+
+ver=2019-07-16;
+sed -i "s/\(<parameter name=\"load_date\">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /opt/informatica/10.2.2/isp/bin/test2.xml
+
+
+
+
+ver=2019-07-16;
+ver1='01-01-2019 01:00:00'
+STR1="'"
+sed -i "s/\(<parameter name=\"load_date\">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /opt/informatica/10.2.2/isp/bin/test2.xml
+sed -i "s/\(<parameter name=\"last_upd\">\)[^<]*\(<\/parameter>\)/\1$STR1$ver1$STR1\2/" /opt/informatica/10.2.2/isp/bin/test2.xml
+
+
+echo $1 >>/opt/informatica/10.2.2/isp/bin/test1.log
+echo "Satya is running" >>/opt/informatica/10.2.2/isp/bin/test1.log
+chmod 777 /opt/informatica/10.2.2/isp/bin/test1.log
+
+
+
+
+
+s=$1
+
+ver=2019-07-16;
+A="$(cut -d'T' -f2 <<<"$s")"
+A1="$(cut -d'T' -f1 <<<"$s")"
+
+B="$(cut -d'.' -f1 <<<"$A")"
+string1=" "
+string2="'"
+VARF=$string2$A1$string1$B$string2
+echo $VARF
+
+
+
+sed -i "s/\(<parameter name=\"load_date\">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/test2.xml
+sed -i "s/\(<parameter name=\"last_upd\">\)[^<]*\(<\/parameter>\)/\1$VARF\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/test2.xml
+
+
+
+s=$1
+
+ver=2019-07-16;
+A="$(cut -d'T' -f2 <<<"$s")"
+A1="$(cut -d'T' -f1 <<<"$s")"
+
+B="$(cut -d'.' -f1 <<<"$A")"
+string1=" "
+string2="'"
+VARF=$string2$A1$string1$B$string2
+echo $VARF
+
+
+
+sed -i "s/\(<parameter name=\"load_date\">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_s_user.xml
+sed -i "s/\(<parameter name=\"last_upd\">\)[^<]*\(<\/parameter>\)/\1$VARF\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_s_user.xml
+
+
+
+/opt/informatica/10.2.2/isp/bin/infacmd.sh wfs StartWorkflow -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a App_test -wf wf_source_to_raw_s_user -pf /home/infachads/scripts/test2.xml
+
+
+/opt/informatica/10.2.2/isp/bin/infacmd.sh wfs StartWorkflow -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a App_test -wf wf_source_to_raw_s_user -pf /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_s_user.xml
+
+
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+        exit 1
+fi
+
+echo $1 >>/home/infachads/scripts/test1.log
+echo "Satya is running" >>/home/infachads/scripts/test1.log
+chmod 777 /home/infachads/scripts/test1.log
+
+matica/10.2.2/isp/bin/test2.xml
+
+
+date +'%Y/%m/%d'
+
+date +'
+
+
+
+s=$1
+
+ver=2019-07-16;
+A="$(cut -d'T' -f2 <<<"$s")"
+A1="$(cut -d'T' -f1 <<<"$s")"
+
+B="$(cut -d'.' -f1 <<<"$A")"
+string1=" "
+string2="'"
+VARF=$string2$A1$string1$B$string2
+echo $VARF
+
+
+sed -i "s/\(<parameter name=\"load_date\">\)[^<]*\(<\/parameter>\)/\1$ver\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_glif.xml
+sed -i "s/\(<parameter name=\"last_upd\">\)[^<]*\(<\/parameter>\)/\1$VARF\2/" /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_glif.xml
+
+
+string1='depp'
+string2=","
+string3=$1
+varf=$string1$string2$string3
+
+echo $varf >/home/satyas.dasmohp@SDP.LOCAL/scripts/wf_test_inst_id.txt
+chmod 777 /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_test_inst_id.txt
+
+
+/opt/informatica/10.2.2/isp/bin/infacmd.sh wfs StartWorkflow -dn DOM_SDP_INFBDM_SBX -sn INFA_BDM_CAP_DIS -un satyas.dasmohp -pd Satya@123 -sdn SDP.LOCAL -a Application_source_to_raw_glif -wf wf_source_to_raw_glif -pf /home/satyas.dasmohp@SDP.LOCAL/scripts/wf_source_to_raw_glif.xml
