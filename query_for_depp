@@ -1,0 +1,14 @@
+select s.status,t.status,s.inst_no
+
+from (select * from (select *,
+row_number() over(partition by inst_no,sys,type,int_cat order by load_date desc) as rownum
+from base_cms2012_bancs.depp) t1
+where t1.rownum=1) t
+full outer join base_cms2012_bancs.depp_job_id s
+on t.inst_no= s.inst_no
+and t.sys = s.sys
+and t.type = s.type
+and t.int_cat = s.int_cat
+
+where s.inst_no is not null
+and nvl(t.status,'test') <> nvl(s.status,'test');
