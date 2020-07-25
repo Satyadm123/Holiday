@@ -1,0 +1,37 @@
+
+CREATE EXTERNAL TABLE IF NOT EXISTS ${hivevar:dbName}.glif(
+  key_1 char(39), 
+  soc char(3), 
+  brch char(5), 
+  fcy_code char(3), 
+  gl_class_code varchar(40), 
+  description varchar(30), 
+  posting_ind char(1), 
+  trans_date string, 
+  lcy_amt decimal(17,3), 
+  fcy_amt decimal(17,3), 
+  reversal_code char(1), 
+  reversal_date string, 
+  glif_references char(16), 
+  source_appln char(3), 
+  ps_journal_id char(10), 
+  ps_journal_nbr int, 
+  cntl_centre char(5), 
+  lcy_npv_amt decimal(17,3), 
+  fcy_npv_amt decimal(17,3), 
+  promo_no char(2), 
+  islamic_bank char(1), 
+  home_brch char(5), 
+  acct_type char(4), 
+  teller_no char(8), 
+  misc_reference char(8), 
+  batch_id int, 
+  dsn_id int, 
+  gdpr_batch_id int, 
+  gdpr_anonymised_date string)
+PARTITIONED BY ( 
+  load_date string)
+  ROW FORMAT DELIMITED
+  FIELDS TERMINATED BY ','
+  STORED AS TEXTFILE
+  LOCATION '/data/cdp/rdb/';
