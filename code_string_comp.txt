@@ -1,0 +1,42 @@
+import scala.math.min
+import scala.math.max
+
+def stringDistance(s1: String, s2: String): Int = {
+  def minimum(i1: Int, i2: Int, i3: Int) = min(min(i1, i2), i3)
+
+  val s3 = s2 match{
+    case null => ""
+    case _ =>s2
+  }
+  var dist = ( new Array[Int](s1.length + 1),
+    new Array[Int](s1.length + 1) )
+
+  for (idx <- 0 to s1.length) dist._2(idx) = idx
+
+  for (jdx <- 1 to s3.length) {
+    val (newDist, oldDist) = dist
+    newDist(0) = jdx
+    for (idx <- 1 to s1.length) {
+      newDist(idx) = minimum (
+        oldDist(idx) + 1,
+        newDist(idx-1) + 1,
+        oldDist(idx-1) + (if (s1(idx-1) == s3(jdx-1)) 0 else 1)
+      )
+    }
+    dist = dist.swap
+  }
+
+  dist._2(s1.length)
+}
+
+val df1_1 = spark.read.format("csv").option("header","true").load("/tmp/DataShed_Technical_Test.csv");
+
+
+
+val df2_2 = spark.read.format("csv").option("header","true").load("/tmp/DataShed_Technical_Test.csv");
+
+
+
+val udf = org.apache.spark.sql.functions.udf((stringA : String, stringB : String) => { stringDistance(stringA,stringB); });
+
+val df3 = df1_1.join(df2_1, udf(df1_1("given_name"), df2_1("given_name")) === 1 && udf(df1_1("surname"), df2_1("surname")) === 1 );
