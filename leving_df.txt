@@ -1,0 +1,46 @@
+
+https://timepasstechies.com/spark-dataframe-fuzzy-string-matching/
+
+import scala.math.min
+
+
+
+  def apply(s1: String, s2: String) = {
+    def minimum(i1: Int, i2: Int, i3: Int) = math.min(math.min(i1, i2), i3)
+
+    //if (s1 != null && s1 != "" && s2 != null && s2 != "") {
+    val str1 = s1.toLowerCase
+    val str2 = s2.toLowerCase
+    val dist = Array.tabulate(str2.length + 1, str1.length + 1) { (j, i) =>
+      if (j == 0) i else if (i == 0) j else 0
+    }
+    for (j <- 1 to str2.length; i <- 1 to str1.length)
+      dist(j)(i) =
+        if (str2(j - 1) == str1(i - 1)) dist(j - 1)(i - 1)
+        else
+          minimum(
+            dist(j - 1)(i) + 1,
+            dist(j)(i - 1) + 1,
+            dist(j - 1)(i - 1) + 1
+          )
+    dist(str2.length)(str1.length)
+    //} else 10
+  }
+
+  def getLevenshteinDistance = (names: String) => {
+    //val levenshteinDistance = new LevenshteinDistance
+    val employees = names.split("\\|")
+    val employeeInData = employees(0)
+    val matching = employees
+      .slice(1, employees.length)
+      .find(name => {
+        apply(employeeInData, name) <= 2
+      })
+    matching.getOrElse("NO_MATCH")
+
+
+
+}
+
+
+getLevenshteinDistance("satyasobhan1985-07-81m|Amyjackson1900-01-01f||satyisobhan1985-07-81m")
